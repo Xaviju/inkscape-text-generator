@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <_name>Text Generator</_name>
+    <id>org.inkscape.unsplash.uifaces</id>
+
+    <dependency type="executable" location="extensions">textgen.py</dependency>
+
+    <param name="text_generator" type="notebook">
+        <page name="samples" gui-text="Text Samples">
+            <param appearance="minimal" name="text_type" type="optiongroup" gui-text="Text Type">
+                <option value="headline">HeadLine</option>
+                <option value="article">Article</option>
+                <option value="date">Date</option>
+                <option value="name">Name</option>
+            </param>
+        </page>
+        <page name="rss_page" gui-text="RSS">
+            <param name="rss" type="string" gui-text="Write an RSS">http://www.theonion.com/feeds/rss</param>
+            <param appearance="minimal" name="rss_text" type="optiongroup" gui-text="Text Type">
+                <option value="headline">HeadLine</option>
+                <option value="article">Article</option>
+                <option value="date">Date</option>
+                <option value="name">Name</option>
+            </param>
+        </page>
+    </param>
+
+    <!-- effects exchange both input and output messages -->
+    <effect>
+		<object-type>all</object-type>
+		<effects-menu>
+			<submenu _name="Add text"/>
+		</effects-menu>
+	</effect>
+
+    <script>
+        <command reldir="extensions" interpreter="python">textgen.py</command>
+    </script>
+</inkscape-extension>
